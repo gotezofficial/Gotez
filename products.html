@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - GoteZ</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Gote<span>Z</span></a>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li>
+                        <a href="#" id="cart-toggle">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cart Panel -->
+    <div class="cart-panel" id="cart-panel">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="cart-close" id="cart-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-empty" id="cart-empty">
+            <div class="empty-cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <p>Your cart is empty</p>
+            <a href="products.html" class="btn">Shop Now</a>
+        </div>
+        
+        <div class="cart-content" id="cart-content">
+            <div class="cart-message">
+                <p class="success-message">Excellent choice! Here are your products:</p>
+                <p class="shipping-message">You unlocked free shipping!</p>
+            </div>
+            
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span id="cart-shipping">Free</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+            </div>
+            
+            <button class="btn checkout-btn" id="checkout-btn">
+                <i class="fas fa-lock"></i> CONTINUE TO SAFE CHECKOUT
+            </button>
+            
+            <div class="payment-icons">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/american_express-2264c9b8b57b23b0b0831827e90cd7bcda2836adc42a912ebedf545dead35b20.svg" alt="American Express">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/apple_pay-f6db0077dc7c325b436ecbdcf254239100b35b70b1663bc7523d7c424901fa09.svg" alt="Apple Pay">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/google_pay-c66a29c63facf2053bf69352982c958e9675cabea4f2f7ccec08d169d1856b31.svg" alt="Google Pay">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/klarna-ec83d1a4d9d2fbe491c31de8a6f94c1a3589af3c2799e1c2f624c4249cd4b5f6.svg" alt="Klarna">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/master-173035bc8124581983d4efa50cf8626e8553c2b311353fbf67485f9c1a2b88d1.svg" alt="Mastercard">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/paypal-49e4c1e03244b6d2de0d270ca0d22dd15da6e92cc7266e93eb43762df5aa355d.svg" alt="PayPal">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/shop_pay-68f5073bb557e4d33ed52472e9db57b43760f9b9102d27383e5f1ac0a8e82e9a.svg" alt="Shop Pay">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg" alt="Visa">
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Title -->
+    <section class="page-title">
+        <div class="container">
+            <h1>Our Products</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / <span>Products</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <!-- Filter Toggle Button (Mobile) -->
+            <button class="filter-toggle" id="filter-toggle">
+                <span>Filter Products</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            
+            <div class="products-container">
+                <!-- Filters Sidebar -->
+                <div class="filters-sidebar" id="filters-sidebar">
+                    <div class="filter-content">
+                        <div class="filter-group">
+                            <h3>
+                                Categories
+                                <span class="toggle-icon"><i class="fas fa-chevron-up"></i></span>
+                            </h3>
+                            <div class="filter-group-content">
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" id="category-tshirts">
+                                        <label for="category-tshirts">T-Shirts</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="category-hoodies">
+                                        <label for="category-hoodies">Hoodies</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="category-tanks">
+                                        <label for="category-tanks">Tank Tops</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="category-oversized">
+                                        <label for="category-oversized">Oversized Shirts</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="category-dog-tshirts">
+                                        <label for="category-dog-tshirts">Dog T-Shirts</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="category-dog-hoodies">
+                                        <label for="category-dog-hoodies">Dog Hoodies</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="category-dog-accessories">
+                                        <label for="category-dog-accessories">Dog Accessories</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <h3>
+                                Gender
+                                <span class="toggle-icon"><i class="fas fa-chevron-up"></i></span>
+                            </h3>
+                            <div class="filter-group-content">
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" id="gender-men">
+                                        <label for="gender-men">Men</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="gender-women">
+                                        <label for="gender-women">Women</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="gender-unisex">
+                                        <label for="gender-unisex">Unisex</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="gender-dog">
+                                        <label for="gender-dog">Dog</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <h3>
+                                Price Range
+                                <span class="toggle-icon"><i class="fas fa-chevron-up"></i></span>
+                            </h3>
+                            <div class="filter-group-content">
+                                <div class="price-range">
+                                    <input type="range" min="0" max="100" value="75" id="price-slider">
+                                    <div class="price-labels">
+                                        <span>$0</span>
+                                        <span>$100</span>
+                                    </div>
+                                    <div class="price-value">Max Price: $<span id="price-value">75</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <h3>
+                                Size
+                                <span class="toggle-icon"><i class="fas fa-chevron-up"></i></span>
+                            </h3>
+                            <div class="filter-group-content">
+                                <div class="size-options">
+                                    <button class="size-btn">XS</button>
+                                    <button class="size-btn">S</button>
+                                    <button class="size-btn">M</button>
+                                    <button class="size-btn">L</button>
+                                    <button class="size-btn">XL</button>
+                                    <button class="size-btn">XXL</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <h3>
+                                Color
+                                <span class="toggle-icon"><i class="fas fa-chevron-up"></i></span>
+                            </h3>
+                            <div class="filter-group-content">
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" id="color-black">
+                                        <label for="color-black">Black</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="color-white">
+                                        <label for="color-white">White</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="color-gray">
+                                        <label for="color-gray">Gray</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="color-red">
+                                        <label for="color-red">Red</label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="color-blue">
+                                        <label for="color-blue">Blue</label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <button class="btn filter-apply-btn">Apply Filters</button>
+                        <button class="btn btn-outline filter-reset-btn">Reset Filters</button>
+                    </div>
+                </div>
+                
+                <!-- Products Content -->
+                <div class="products-content">
+                    <div class="products-header">
+                        <div class="products-count">Showing products</div>
+                        <div class="products-sort">
+                            <label for="sort-by">Sort by:</label>
+                            <select id="sort-by">
+                                <option value="featured">Featured</option>
+                                <option value="newest">Newest</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="rating">Customer Rating</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="product-grid">
+                        <!-- Products will be dynamically loaded here -->
+                    </div>
+                    
+                    <div class="pagination">
+                        <a href="#" class="active">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#" class="next">Next <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>GoteZ</h3>
+                    <p>Edgy, bold, and unapologetically funny clothing for those who dare to express themselves.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="products.html?category=tshirts">T-Shirts</a></li>
+                        <li><a href="products.html?category=hoodies">Hoodies</a></li>
+                        <li><a href="products.html?category=dog-tshirts">Dog Clothes</a></li>
+                        <li><a href="products.html?filter=new">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Help</h3>
+                    <ul>
+                        <li><a href="#">Shipping Information</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 GoteZ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/products.js"></script>
+</body>
+</html>

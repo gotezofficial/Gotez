@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - GoteZ</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* About page specific styles */
+        .about-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .about-section {
+            padding: 60px 0;
+        }
+        
+        .about-section:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .about-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .about-content ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .about-content ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .about-content ul li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #6c5ce7;
+        }
+        
+        .team-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .team-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .team-member-image {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .team-member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-member-info {
+            padding: 20px;
+        }
+        
+        .team-member-info h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.2rem;
+        }
+        
+        .team-member-info p {
+            color: #777;
+            margin: 0 0 15px 0;
+        }
+        
+        .team-member-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .team-member-social a {
+            color: #555;
+            transition: color 0.2s;
+        }
+        
+        .team-member-social a:hover {
+            color: #6c5ce7;
+        }
+        
+        .values-section {
+            padding: 80px 0;
+            background-color: #f8f8f8;
+        }
+        
+        .values-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .value-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            color: #6c5ce7;
+            margin-bottom: 20px;
+        }
+        
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            padding: 100px 0;
+            background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Gote<span>Z</span></a>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li>
+                        <a href="#" id="cart-toggle">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cart Panel -->
+    <div class="cart-panel" id="cart-panel">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="cart-close" id="cart-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-empty" id="cart-empty">
+            <div class="empty-cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <p>Your cart is empty</p>
+            <a href="products.html" class="btn">Shop Now</a>
+        </div>
+        
+        <div class="cart-content" id="cart-content">
+            <div class="cart-message">
+                <p class="success-message">Excellent choice! Here are your products:</p>
+                <p class="shipping-message">You unlocked free shipping!</p>
+            </div>
+            
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span id="cart-shipping">Free</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+            </div>
+            
+            <button class="btn checkout-btn" id="checkout-btn">
+                <i class="fas fa-lock"></i> CONTINUE TO SAFE CHECKOUT
+            </button>
+            
+            <div class="payment-icons">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/american_express-2264c9b8b57b23b0b0831827e90cd7bcda2836adc42a912ebedf545dead35b20.svg" alt="American Express">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/apple_pay-f6db0077dc7c325b436ecbdcf254239100b35b70b1663bc7523d7c424901fa09.svg" alt="Apple Pay">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/google_pay-c66a29c63facf2053bf69352982c958e9675cabea4f2f7ccec08d169d1856b31.svg" alt="Google Pay">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/klarna-ec83d1a4d9d2fbe491c31de8a6f94c1a3589af3c2799e1c2f624c4249cd4b5f6.svg" alt="Klarna">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/master-173035bc8124581983d4efa50cf8626e8553c2b311353fbf67485f9c1a2b88d1.svg" alt="Mastercard">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/paypal-49e4c1e03244b6d2de0d270ca0d22dd15da6e92cc7266e93eb43762df5aa355d.svg" alt="PayPal">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/shop_pay-68f5073bb557e4d33ed52472e9db57b43760f9b9102d27383e5f1ac0a8e82e9a.svg" alt="Shop Pay">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg" alt="Visa">
+            </div>
+        </div>
+    </div>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>About GoteZ</h1>
+            <p>We're not just a clothing brand. We're a statement, a lifestyle, and a community of people who aren't afraid to express themselves through edgy, bold, and unapologetically funny apparel.</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="about-section">
+        <div class="container about-container">
+            <div class="about-content">
+                <h2>Our Story</h2>
+                <p>GoteZ was born out of a simple idea: why should clothing be boring? In 2020, our founder was tired of seeing the same old designs and decided to create something different—something that would make people laugh, think, and maybe even blush a little.</p>
+                <p>What started as a small operation in a garage has grown into a brand loved by thousands who appreciate our unique blend of humor, quality, and style. We believe that clothing is more than just fabric—it's a way to express yourself, make a statement, and connect with like-minded individuals.</p>
+                <p>Today, GoteZ continues to push boundaries with designs that are edgy, funny, and sometimes a bit controversial. But that's who we are, and we wouldn't have it any other way.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="GoteZ Founder">
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission Section -->
+    <section class="about-section">
+        <div class="container about-container">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="GoteZ Mission">
+            </div>
+            <div class="about-content">
+                <h2>Our Mission</h2>
+                <p>At GoteZ, our mission is simple: to create clothing that allows people to express themselves authentically and unapologetically. We believe in:</p>
+                <ul>
+                    <li>Creating high-quality apparel that lasts</li>
+                    <li>Designing products that make people smile, laugh, and start conversations</li>
+                    <li>Building a community of individuals who aren't afraid to stand out</li>
+                    <li>Pushing boundaries and challenging conventional fashion norms</li>
+                    <li>Making products that are as comfortable as they are eye-catching</li>
+                </ul>
+                <p>We're not just selling t-shirts and hoodies—we're selling confidence, self-expression, and a little bit of rebellion. Because life's too short to wear boring clothes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2>Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-laugh-squint"></i>
+                    </div>
+                    <h3>Humor First</h3>
+                    <p>We believe laughter is essential. Our designs aim to bring smiles and start conversations, because clothing should be fun, not just functional.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Quality Matters</h3>
+                    <p>We never compromise on quality. From premium fabrics to durable prints, we ensure our products look great and last long, wash after wash.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Bold Expression</h3>
+                    <p>We encourage everyone to express themselves boldly and authentically. Our designs aren't for the faint-hearted—they're for those who dare to stand out.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <p>We're building more than a brand; we're creating a community of like-minded individuals who share our appreciation for edgy humor and self-expression.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Customer Love</h3>
+                    <p>Our customers are everything to us. We strive to provide exceptional service, listen to feedback, and continuously improve our products and experience.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <h3>Pet Friendly</h3>
+                    <p>We believe your furry friends deserve to make a statement too. That's why we've expanded our line to include stylish and comfortable clothing for dogs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2>Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Doe">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>John Doe</h3>
+                        <p>Founder & Creative Director</p>
+                        <div class="team-member-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jane Smith">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Jane Smith</h3>
+                        <p>Head of Design</p>
+                        <div class="team-member-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Mike Johnson">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Mike Johnson</h3>
+                        <p>Operations Manager</p>
+                        <div class="team-member-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Sarah Williams">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Sarah Williams</h3>
+                        <p>Marketing Director</p>
+                        <div class="team-member-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Join the GoteZ Family</h2>
+                <p>Ready to express yourself with our bold, edgy designs? Browse our collection and find the perfect statement piece that speaks to you.</p>
+                <div class="cta-buttons">
+                    <a href="products.html" class="btn">Shop Now</a>
+                    <a href="contact.html" class="btn btn-outline">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>GoteZ</h3>
+                    <p>Edgy, bold, and unapologetically funny clothing for those who dare to express themselves.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="products.html?category=tshirts">T-Shirts</a></li>
+                        <li><a href="products.html?category=hoodies">Hoodies</a></li>
+                        <li><a href="dog-clothes.html">Dog Clothes</a></li>
+                        <li><a href="products.html?filter=new">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Help</h3>
+                    <ul>
+                        <li><a href="#">Shipping Information</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 GoteZ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/products.js"></script>
+</body>
+</html>

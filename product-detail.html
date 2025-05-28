@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail - GoteZ</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Gote<span>Z</span></a>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li>
+                        <a href="#" id="cart-toggle">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cart Panel -->
+    <div class="cart-panel" id="cart-panel">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="cart-close" id="cart-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-empty" id="cart-empty">
+            <div class="empty-cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <p>Your cart is empty</p>
+            <a href="products.html" class="btn">Shop Now</a>
+        </div>
+        
+        <div class="cart-content" id="cart-content">
+            <div class="cart-message">
+                <p class="success-message">Excellent choice! Here are your products:</p>
+                <p class="shipping-message">You unlocked free shipping!</p>
+            </div>
+            
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span id="cart-shipping">Free</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+            </div>
+            
+            <button class="btn checkout-btn" id="checkout-btn">
+                <i class="fas fa-lock"></i> CONTINUE TO SAFE CHECKOUT
+            </button>
+            
+            <div class="payment-icons">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/american_express-2264c9b8b57b23b0b0831827e90cd7bcda2836adc42a912ebedf545dead35b20.svg" alt="American Express">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/apple_pay-f6db0077dc7c325b436ecbdcf254239100b35b70b1663bc7523d7c424901fa09.svg" alt="Apple Pay">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/google_pay-c66a29c63facf2053bf69352982c958e9675cabea4f2f7ccec08d169d1856b31.svg" alt="Google Pay">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/klarna-ec83d1a4d9d2fbe491c31de8a6f94c1a3589af3c2799e1c2f624c4249cd4b5f6.svg" alt="Klarna">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/master-173035bc8124581983d4efa50cf8626e8553c2b311353fbf67485f9c1a2b88d1.svg" alt="Mastercard">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/paypal-49e4c1e03244b6d2de0d270ca0d22dd15da6e92cc7266e93eb43762df5aa355d.svg" alt="PayPal">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/shop_pay-68f5073bb557e4d33ed52472e9db57b43760f9b9102d27383e5f1ac0a8e82e9a.svg" alt="Shop Pay">
+                <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4fdbdb1a35ce83b89cca12a187f00.svg" alt="Visa">
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / <a href="products.html">Products</a> / <span>Product Name</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail">
+        <div class="container">
+            <div class="product-detail-container">
+                <!-- Product Images - Left Side -->
+                <div class="product-images">
+                    <div class="main-image">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Product Name" id="main-product-image">
+                        <div class="zoom-icon">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    <div class="thumbnail-images">
+                        <div class="thumbnail active" data-image="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Product - Front">
+                        </div>
+                        <div class="thumbnail" data-image="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80">
+                            <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Product - Back">
+                        </div>
+                        <div class="thumbnail" data-image="https://images.unsplash.com/photo-1554568218-0f1715e72254?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80">
+                            <img src="https://images.unsplash.com/photo-1554568218-0f1715e72254?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Product - Detail">
+                        </div>
+                        <div class="thumbnail" data-image="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80">
+                            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Product - Model">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Info - Right Side -->
+                <div class="product-info">
+                    <h1>Product Name</h1>
+                    
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="rating-count">4.8 (124 reviews)</span>
+                    </div>
+                    
+                    <div class="product-price">
+                        <span class="current-price">$24.99</span>
+                        <span class="original-price">$34.99</span>
+                        <span class="discount">SAVE 28%</span>
+                    </div>
+                    
+                    <div class="product-description">
+                        <p>Product description will be loaded dynamically.</p>
+                        <ul>
+                            <!-- Features will be loaded dynamically -->
+                        </ul>
+                    </div>
+                    
+                    <div class="product-options">
+                        <div class="option-group">
+                            <h3>Color <span class="required">*</span></h3>
+                            <div class="color-options">
+                                <!-- Color options will be loaded dynamically -->
+                            </div>
+                            <div class="selected-color">Selected: <span>Black</span></div>
+                        </div>
+                        
+                        <div class="option-group">
+                            <h3>Size <span class="required">*</span></h3>
+                            <div class="size-options">
+                                <!-- Size options will be loaded dynamically -->
+                            </div>
+                        </div>
+                        
+                        <div class="option-group">
+                            <h3>Quantity</h3>
+                            <div class="quantity-selector">
+                                <button class="quantity-btn minus">-</button>
+                                <input type="number" value="1" min="1" max="10" class="quantity-input">
+                                <button class="quantity-btn plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button class="btn add-to-cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        <button class="btn btn-outline wishlist-btn"><i class="far fa-heart"></i> Wishlist</button>
+                    </div>
+                    
+                    <div class="product-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-tag"></i> Categories: <a href="products.html?category=tshirts">T-Shirts</a>, <a href="products.html?category=funny">Funny</a>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-share-alt"></i> Share: 
+                            <a href="#" class="social-share"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-share"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-share"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-share"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Tabs Section -->
+    <section class="product-tabs">
+        <div class="container">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="description">Description</button>
+                <button class="tab-btn" data-tab="additional-info">Additional Information</button>
+                <button class="tab-btn" data-tab="reviews">Reviews (124)</button>
+                <button class="tab-btn" data-tab="shipping">Shipping & Returns</button>
+            </div>
+            
+            <div class="tab-content">
+                <div class="tab-pane active" id="description">
+                    <h3>Product Description</h3>
+                    <p>Make a statement with our product. This edgy and provocative design is perfect for those who appreciate dark humor and aren't afraid to show it.</p>
+                    <p>Crafted from premium quality cotton blend, this product offers exceptional comfort for all-day wear. The fabric is soft against the skin, breathable, and durable, ensuring your bold statement lasts through multiple washes without fading.</p>
+                    <p>The regular fit design is true to size and flatters all body types. The ribbed crew neck provides a classic look, while the reinforced shoulder seams add extra durability. The high-quality print uses eco-friendly inks that won't crack or peel, maintaining the vibrant appearance of your statement piece.</p>
+                    <p>Whether you're heading to a casual hangout, a party, or just want to turn heads on a regular day, this product is the perfect choice for those who dare to be different. Pair it with jeans for a casual look or layer it under a jacket for a more subtle approach.</p>
+                    <p>Available in multiple colors and sizes, there's a perfect option for everyone who wants to add some edgy humor to their wardrobe.</p>
+                </div>
+                
+                <div class="tab-pane" id="additional-info">
+                    <h3>Additional Information</h3>
+                    <table class="info-table">
+                        <tr>
+                            <th>Material</th>
+                            <td>60% Cotton, 40% Polyester</td>
+                        </tr>
+                        <tr>
+                            <th>Weight</th>
+                            <td>180 gsm</td>
+                        </tr>
+                        <tr>
+                            <th>Fit</th>
+                            <td>Regular fit, true to size</td>
+                        </tr>
+                        <tr>
+                            <th>Care Instructions</th>
+                            <td>Machine wash cold, inside out. Tumble dry low. Do not iron directly on print.</td>
+                        </tr>
+                        <tr>
+                            <th>Country of Origin</th>
+                            <td>USA</td>
+                        </tr>
+                        <tr>
+                            <th>Available Sizes</th>
+                            <td>XS, S, M, L, XL, XXL</td>
+                        </tr>
+                        <tr>
+                            <th>Available Colors</th>
+                            <td>Black, White, Gray, Charcoal</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="tab-pane" id="reviews">
+                    <div class="reviews-summary">
+                        <div class="average-rating">
+                            <div class="rating-number">4.8</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div>Based on 124 reviews</div>
+                        </div>
+                        <div class="rating-bars">
+                            <div class="rating-bar">
+                                <div class="rating-label">5 Stars</div>
+                                <div class="bar-container">
+                                    <div class="bar" style="width: 75%;"></div>
+                                </div>
+                                <div class="rating-percent">75%</div>
+                            </div>
+                            <div class="rating-bar">
+                                <div class="rating-label">4 Stars</div>
+                                <div class="bar-container">
+                                    <div class="bar" style="width: 20%;"></div>
+                                </div>
+                                <div class="rating-percent">20%</div>
+                            </div>
+                            <div class="rating-bar">
+                                <div class="rating-label">3 Stars</div>
+                                <div class="bar-container">
+                                    <div class="bar" style="width: 3%;"></div>
+                                </div>
+                                <div class="rating-percent">3%</div>
+                            </div>
+                            <div class="rating-bar">
+                                <div class="rating-label">2 Stars</div>
+                                <div class="bar-container">
+                                    <div class="bar" style="width: 1%;"></div>
+                                </div>
+                                <div class="rating-percent">1%</div>
+                            </div>
+                            <div class="rating-bar">
+                                <div class="rating-label">1 Star</div>
+                                <div class="bar-container">
+                                    <div class="bar" style="width: 1%;"></div>
+                                </div>
+                                <div class="rating-percent">1%</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="reviews-list">
+                        <div class="review">
+                            <div class="review-header">
+                                <div class="reviewer">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John D." class="reviewer-img">
+                                    <div class="reviewer-info">
+                                        <h4>John D.</h4>
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-date">May 15, 2025</div>
+                            </div>
+                            <div class="review-content">
+                                <p>This product is absolutely hilarious! I wore it to a party and everyone was cracking up. The quality is great, and the print hasn't faded after several washes. Definitely recommend for anyone with a sense of humor.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="review">
+                            <div class="review-header">
+                                <div class="reviewer">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah M." class="reviewer-img">
+                                    <div class="reviewer-info">
+                                        <h4>Sarah M.</h4>
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-date">May 10, 2025</div>
+                            </div>
+                            <div class="review-content">
+                                <p>Bought this for my boyfriend and he loves it! The material is soft and comfortable, and the sizing is accurate. The print quality is excellent and hasn't cracked after washing. Will definitely be buying more from this brand!</p>
+                            </div>
+                        </div>
+                        
+                        <div class="review">
+                            <div class="review-header">
+                                <div class="reviewer">
+                                    <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Mike T." class="reviewer-img">
+                                    <div class="reviewer-info">
+                                        <h4>Mike T.</h4>
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-date">May 3, 2025</div>
+                            </div>
+                            <div class="review-content">
+                                <p>Great product with a funny message! The only reason I'm giving it 4 stars instead of 5 is because it runs slightly small. I'd recommend sizing up if you're between sizes. Otherwise, the quality is excellent and the design is exactly as pictured.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="load-more">
+                        <button class="btn">Load More Reviews</button>
+                    </div>
+                    
+                    <div class="write-review">
+                        <h3>Write a Review</h3>
+                        <form class="review-form">
+                            <div class="form-group">
+                                <label>Your Rating</label>
+                                <div class="rating-select">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="review-name">Your Name</label>
+                                <input type="text" id="review-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="review-email">Your Email</label>
+                                <input type="email" id="review-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="review-content">Your Review</label>
+                                <textarea id="review-content" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Submit Review</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="tab-pane" id="shipping">
+                    <h3>Shipping Information</h3>
+                    <p>We offer the following shipping options for all orders:</p>
+                    <ul>
+                        <li><strong>Standard Shipping:</strong> 5-7 business days (Free for orders over $50)</li>
+                        <li><strong>Express Shipping:</strong> 2-3 business days ($12.00)</li>
+                        <li><strong>Next Day Delivery:</strong> Next business day if ordered before 2pm EST ($25.00)</li>
+                    </ul>
+                    <p>All orders are processed within 24 hours during business days. Please note that delivery times may vary during peak seasons and holidays.</p>
+                    
+                    <h3>Return Policy</h3>
+                    <p>We want you to be completely satisfied with your purchase. If for any reason you're not happy with your order, we offer a hassle-free return policy:</p>
+                    <ul>
+                        <li>Returns accepted within 30 days of delivery</li>
+                        <li>Item must be unworn, unwashed, and in original packaging</li>
+                        <li>Return shipping is the responsibility of the customer</li>
+                        <li>Refunds will be processed within 5-7 business days after we receive the returned item</li>
+                    </ul>
+                    <p>For any questions regarding shipping or returns, please <a href="contact.html">contact our customer service team</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products Section -->
+    <section class="related-products">
+        <div class="container">
+            <div class="section-title">
+                <h2>You May Also Like</h2>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Wish You Were A Beer - Gym Tank">
+                    </div>
+                    <div class="product-info">
+                        <h3>Wish You Were A Beer - Gym Tank</h3>
+                        <div class="product-price">$29.99</div>
+                        <a href="product-detail.html?id=2" class="btn">View Details</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1554568218-0f1715e72254?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Googled My Symptoms - Oversize Shirt">
+                    </div>
+                    <div class="product-info">
+                        <h3>Googled My Symptoms - Oversize Shirt</h3>
+                        <div class="product-price">$34.99</div>
+                        <a href="product-detail.html?id=3" class="btn">View Details</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Dark Humor Hoodie">
+                    </div>
+                    <div class="product-info">
+                        <h3>Dark Humor Hoodie</h3>
+                        <div class="product-price">$49.99</div>
+                        <a href="product-detail.html?id=4" class="btn">View Details</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Sarcasm Loading T-Shirt">
+                    </div>
+                    <div class="product-info">
+                        <h3>Sarcasm Loading T-Shirt</h3>
+                        <div class="product-price">$26.99</div>
+                        <a href="product-detail.html?id=5" class="btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>GoteZ</h3>
+                    <p>Edgy, bold, and unapologetically funny clothing for those who dare to express themselves.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="products.html?category=tshirts">T-Shirts</a></li>
+                        <li><a href="products.html?category=hoodies">Hoodies</a></li>
+                        <li><a href="products.html?category=dog-tshirts">Dog Clothes</a></li>
+                        <li><a href="products.html?filter=new">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Help</h3>
+                    <ul>
+                        <li><a href="#">Shipping Information</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 GoteZ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/products.js"></script>
+</body>
+</html>
