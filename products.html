@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - GoteZ</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Gote<span>Z</span></a>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="dog-clothes.html">Dog Clothes</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="page-title">
+        <div class="container">
+            <h1>Our Products</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / <span>Products</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid-container">
+                <!-- Filters Sidebar -->
+                <div class="filters-sidebar">
+                    <div class="filter-header">
+                        <h3>Filters</h3>
+                    </div>
+                    <button class="filter-toggle-mobile" id="filter-toggle-mobile">
+                        <i class="fas fa-filter"></i> Filters
+                    </button>
+                    <div class="filters-content" id="filters-content">
+                        <div class="filter-group">
+                            <h4 class="filter-title">Categories <i class="fas fa-chevron-down"></i></h4>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="checkbox" name="category" value="tshirts">
+                                    <span>T-Shirts</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="category" value="hoodies">
+                                    <span>Hoodies</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="category" value="tanks">
+                                    <span>Tank Tops</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="category" value="oversized">
+                                    <span>Oversized Shirts</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h4 class="filter-title">Gender <i class="fas fa-chevron-down"></i></h4>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="checkbox" name="gender" value="men">
+                                    <span>Men</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="gender" value="women">
+                                    <span>Women</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="gender" value="unisex">
+                                    <span>Unisex</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h4 class="filter-title">Price Range <i class="fas fa-chevron-down"></i></h4>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="checkbox" name="price" value="0-25">
+                                    <span>Under $25</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="price" value="25-50">
+                                    <span>$25 - $50</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="price" value="50-100">
+                                    <span>$50 - $100</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h4 class="filter-title">Tags <i class="fas fa-chevron-down"></i></h4>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="checkbox" name="tag" value="bestseller">
+                                    <span>Bestseller</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="tag" value="new">
+                                    <span>New Arrival</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="tag" value="sale">
+                                    <span>On Sale</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="tag" value="funny">
+                                    <span>Funny</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="tag" value="edgy">
+                                    <span>Edgy</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="filter-buttons">
+                            <button class="btn filter-apply-btn">Apply Filters</button>
+                            <button class="btn btn-outline filter-clear-btn">Clear All</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Products Grid -->
+                <div class="products-grid-wrapper">
+                    <div class="products-header">
+                        <div class="products-count">
+                            <span>Showing 11 of 11 products</span>
+                        </div>
+                        <div class="products-sort">
+                            <label for="sort-by">Sort by:</label>
+                            <select id="sort-by">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="newest">Newest</option>
+                                <option value="bestselling">Best Selling</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Blowjob Is Better Than No Job - T-Shirt">
+                                <div class="product-tags">
+                                    <span class="tag bestseller">Bestseller</span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Blowjob Is Better Than No Job - T-Shirt</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$24.99</span>
+                                    <span class="original-price">$34.99</span>
+                                </div>
+                                <a href="product-detail.html?id=1" class="btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Wish You Were A Beer - Gym Tank">
+                                <div class="product-tags">
+                                    <span class="tag new">New</span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Wish You Were A Beer - Gym Tank</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$29.99</span>
+                                </div>
+                                <a href="product-detail.html?id=2" class="btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1554568218-0f1715e72254?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Googled My Symptoms - Oversize Shirt">
+                                <div class="product-tags">
+                                    <span class="tag sale">Sale</span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Googled My Symptoms - Oversize Shirt</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$34.99</span>
+                                    <span class="original-price">$44.99</span>
+                                </div>
+                                <a href="product-detail.html?id=3" class="btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Dark Humor Hoodie">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Dark Humor Hoodie</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$49.99</span>
+                                </div>
+                                <a href="product-detail.html?id=4" class="btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Sarcasm Loading T-Shirt">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Sarcasm Loading T-Shirt</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$26.99</span>
+                                </div>
+                                <a href="product-detail.html?id=5" class="btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Savage Mode Hoodie">
+                                <div class="product-tags">
+                                    <span class="tag new">New</span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Savage Mode Hoodie</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$44.99</span>
+                                </div>
+                                <a href="product-detail.html?id=6" class="btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Not Today Satan T-Shirt">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Not Today Satan T-Shirt</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$24.99</span>
+                                </div>
+                                <a href="product-detail.html?id=7" class="btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Sorry I'm Late I Didn't Want to Come - T-Shirt">
+                                <div class="product-tags">
+                                    <span class="tag bestseller">Bestseller</span>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Sorry I'm Late I Didn't Want to Come - T-Shirt</h3>
+                                <div class="product-price">
+                                    <span class="current-price">$24.99</span>
+                                </div>
+                                <a href="product-detail.html?id=8" class="btn">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>GoteZ</h3>
+                    <p>Edgy clothing for those who dare to express themselves. Our funky and dark meme designs make a statement wherever you go.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html?category=tshirts">T-Shirts</a></li>
+                        <li><a href="products.html?category=hoodies">Hoodies</a></li>
+                        <li><a href="products.html?category=tanks">Tank Tops</a></li>
+                        <li><a href="dog-clothes.html">Dog Clothes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Help</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get special offers, free giveaways, and new product announcements.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" aria-label="Email address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 GoteZ. All rights reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mainNav = document.getElementById('main-nav');
+            
+            if (mobileMenuBtn && mainNav) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+                    this.classList.toggle('active');
+                });
+            }
+            
+            // Filter toggle for mobile
+            const filterToggleBtn = document.getElementById('filter-toggle-mobile');
+            const filtersContent = document.getElementById('filters-content');
+            
+            if (filterToggleBtn && filtersContent) {
+                filterToggleBtn.addEventListener('click', function() {
+                    filtersContent.classList.toggle('active');
+                    this.classList.toggle('active');
+                    
+                    // Change icon based on state
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        if (filtersContent.classList.contains('active')) {
+                            icon.className = 'fas fa-times';
+                        } else {
+                            icon.className = 'fas fa-filter';
+                        }
+                    }
+                });
+            }
+            
+            // Collapsible filter groups
+            const filterTitles = document.querySelectorAll('.filter-title');
+            
+            filterTitles.forEach(title => {
+                title.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const options = this.nextElementSibling;
+                    if (options) {
+                        options.classList.toggle('collapsed');
+                    }
+                });
+            });
+            
+            // Filter apply button
+            const applyFilterBtn = document.querySelector('.filter-apply-btn');
+            if (applyFilterBtn) {
+                applyFilterBtn.addEventListener('click', function() {
+                    // This would typically update the product display based on selected filters
+                    alert('Filters applied! In a real implementation, this would filter the products.');
+                });
+            }
+            
+            // Filter clear button
+            const clearFilterBtn = document.querySelector('.filter-clear-btn');
+            if (clearFilterBtn) {
+                clearFilterBtn.addEventListener('click', function() {
+                    const allCheckboxes = document.querySelectorAll('.filter-option input[type="checkbox"]');
+                    allCheckboxes.forEach(checkbox => {
+                        checkbox.checked = false;
+                    });
+                    
+                    // This would typically reset the product display
+                    alert('Filters cleared! In a real implementation, this would reset the product display.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
